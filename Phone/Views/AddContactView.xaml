@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<the49:BottomSheet xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+             x:Class="Phone.Views.AddContactView"
+             Padding="0, 32, 0, 32" CornerRadius="30" Background="#fafafa" HeightRequest="600">
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="0, 0, 0, 20">
+            <ImageButton Source="closeblack.svg"  HeightRequest="20" VerticalOptions="Center" Clicked="CloseAddContactView"/>
+            <Label Text="New Contact" FontSize="17" FontAttributes="Bold" Margin="90, 0, 90, 0" VerticalOptions="Center" TextColor="Black"/>
+            <ImageButton Source="checkblack.svg" HeightRequest="22" VerticalOptions="Center" Clicked="SaveContact" />
+        </HorizontalStackLayout>
+
+        <Rectangle HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="Center"/>
+
+        <!--New Contact Form-->
+        <VerticalStackLayout Margin="20">
+            
+            <HorizontalStackLayout Margin="0, 15">
+                <Image Source="user.svg" VerticalOptions="Center" Margin="0, 0, 25, -8"/>
+                <Entry Placeholder="Name" VerticalOptions="Center" WidthRequest="280" Keyboard="Default" x:Name="entryName"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0, 15">
+                <Image Source="briefcase.svg" VerticalOptions="Center" Margin="0, 0, 25, -9"/>
+                <Entry Placeholder="Occupation" VerticalOptions="Center" WidthRequest="280" x:Name="entryOccupation"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0, 15">
+                <Image Source="phone.svg" VerticalOptions="Center" Margin="0, 0, 25, -9"/>
+                <Entry Placeholder="Phone Number" VerticalOptions="Center" Keyboard="Numeric" WidthRequest="280" x:Name="entryPhoneNumber"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0, 15">
+                <Image Source="building.svg" VerticalOptions="Center" Margin="0, 0, 25, -10"/>
+                <Entry Placeholder="Address" VerticalOptions="Center" WidthRequest="280" x:Name="entryAddress"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="0, 15">
+                <Image Source="mail.svg" VerticalOptions="Center" Margin="0, 0, 25, -11"/>
+                <Entry Placeholder="sample@gmail.com" VerticalOptions="Center" Keyboard="Email" WidthRequest="280"  x:Name="entryEmail"/>
+            </HorizontalStackLayout>
+
+            <Label Text="Add less info" TextColor="#4397d1" FontSize="16" Margin="0, 20, 0, 0"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</the49:BottomSheet>

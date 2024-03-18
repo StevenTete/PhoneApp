@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Phone.Views.Detail"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout>
+        <!--Tittle Bar-->
+        <Frame CornerRadius="0" BorderColor="#9c28b1" BackgroundColor="#9c28b1" Margin="0">
+            <VerticalStackLayout HeightRequest="22">
+                <Label Text="PhoneBook" TextColor="White" FontSize="18" Padding="0" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!--Contacts Header-->
+        <Frame CornerRadius="0" BorderColor="#e0e0e0" BackgroundColor="Transparent" Margin="0" Padding="8, 5, 0, 2">
+            <VerticalStackLayout HeightRequest="35">
+                <Label Text="Contacts" TextColor="Black" FontSize="18" VerticalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <!--Contact list-->
+        <VerticalStackLayout BindableLayout.ItemsSource="{Binding Contacts}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <!-- Aquí se define el diseño de cada contacto -->
+                    <ContentView>
+                        <ContentView.Triggers>
+                            <!-- Verifica si no hay información -->
+                            <DataTrigger TargetType="ContentView" Binding="{Binding SinInformacion}" Value="True">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <!-- Si no hay información, muestra un label -->
+                                        <Label Text="No data" FontSize="14" HorizontalTextAlignment="Center" Margin="0, 290, 0, 0"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </ContentView.Triggers>
+                        <!-- Si hay información, muestra un HorizontalStackLayout -->
+                        <ContentView.Content>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="pfp.png" />
+                                <Button Text="{Binding Name}" />
+                            </StackLayout>
+                        </ContentView.Content>
+                    </ContentView>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+
+        
+
+        <!--Add contact button-->
+        <AbsoluteLayout>
+
+            <!-- Add contact button -->
+            <Frame AbsoluteLayout.LayoutBounds="0, 0, 680, 1300" AbsoluteLayout.LayoutFlags="PositionProportional" WidthRequest="60" HeightRequest="60" 
+               CornerRadius="100" HasShadow="True" BorderColor="Transparent" BackgroundColor="#9c28b1">
+                
+                <Frame.Shadow>
+                    <Shadow Brush="Black" Offset="0, 5" Opacity="0.3" />
+                </Frame.Shadow>
+
+                <ImageButton Source="addwhite.svg" BackgroundColor="Transparent" Clicked="OpenAddContactView"/>
+            </Frame>
+
+        </AbsoluteLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
